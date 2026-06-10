@@ -17,7 +17,7 @@ export function LockScreen() {
       style={{ backgroundImage: "url(/lockscreen.png)" }}
       onClick={() => stage === "clock" && setStage("login")}
     >
-      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.16 0.018 255 / 0.45), oklch(0.12 0.02 255 / 0.65))" }} />
+      <div className="absolute inset-0 bg-black/25" />
 
       {stage === "clock" ? (
         <div className="relative z-10 text-center cursor-pointer select-none">
@@ -78,7 +78,7 @@ export function BootScreen() {
       {/* Windows logo */}
       <div className="grid grid-cols-2 gap-1.5 mb-16">
         {[0, 1, 2, 3].map((i) => (
-          <div key={i} className="w-10 h-10 rounded-sm" style={{ background: "oklch(0.66 0.1 240)" }} />
+          <div key={i} className="w-10 h-10 rounded-sm" style={{ background: "oklch(0.6 0.13 235)" }} />
         ))}
       </div>
       <div className="w-8 h-8 rounded-full border-2 border-white/20 border-t-white animate-spin" />

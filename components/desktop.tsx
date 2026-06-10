@@ -46,11 +46,11 @@ export function Desktop() {
 
   const wallpaper =
     settings.wallpaper === "flow"
-      ? "url(/wallpaper-mod.png)"
+      ? "url(/wallpaper-dark.png)"
       : settings.wallpaper === "solid"
-        ? "linear-gradient(135deg, oklch(0.22 0.03 255), oklch(0.16 0.02 250))"
+        ? "linear-gradient(135deg, oklch(0.5 0.16 250), oklch(0.45 0.14 230))"
         : settings.theme === "dark"
-          ? "url(/wallpaper-mod.png)"
+          ? "url(/wallpaper-dark.png)"
           : "url(/wallpaper-light.png)"
 
   return (
