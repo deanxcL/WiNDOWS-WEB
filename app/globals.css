@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-geist-sans), 'Segoe UI', 'Geist Fallback';
+  --font-mono: var(--font-geist-mono), 'Cascadia Code', 'Geist Mono Fallback';
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-taskbar: var(--taskbar);
+  --color-taskbar-foreground: var(--taskbar-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  /* Atlas Mod — Light (clean white-blue, flat) */
+  --background: oklch(0.97 0.012 245);
+  --foreground: oklch(0.24 0.03 255);
+  --card: oklch(0.995 0.004 245);
+  --card-foreground: oklch(0.24 0.03 255);
+  --popover: oklch(0.99 0.006 245);
+  --popover-foreground: oklch(0.24 0.03 255);
+  --primary: oklch(0.58 0.11 248);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.014 245);
+  --secondary-foreground: oklch(0.28 0.03 255);
+  --muted: oklch(0.93 0.014 245);
+  --muted-foreground: oklch(0.5 0.025 255);
+  --accent: oklch(0.89 0.03 245);
+  --accent-foreground: oklch(0.28 0.03 255);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.85 0.018 245);
+  --input: oklch(0.87 0.018 245);
+  --ring: oklch(0.58 0.11 248);
+  --radius: 0.4rem;
+  --taskbar: oklch(0.95 0.014 245 / 97%);
+  --taskbar-foreground: oklch(0.28 0.03 255);
+}
+
+.dark {
+  /* Atlas Mod — Dark (bluish black, muted light-blue accent, flat) */
+  --background: oklch(0.16 0.018 255);
+  --foreground: oklch(0.92 0.012 245);
+  --card: oklch(0.2 0.022 255);
+  --card-foreground: oklch(0.92 0.012 245);
+  --popover: oklch(0.19 0.022 255);
+  --popover-foreground: oklch(0.92 0.012 245);
+  --primary: oklch(0.66 0.1 240);
+  --primary-foreground: oklch(0.14 0.02 255);
+  --secondary: oklch(0.25 0.024 255);
+  --secondary-foreground: oklch(0.92 0.012 245);
+  --muted: oklch(0.25 0.024 255);
+  --muted-foreground: oklch(0.64 0.02 245);
+  --accent: oklch(0.29 0.03 250);
+  --accent-foreground: oklch(0.92 0.012 245);
+  --destructive: oklch(0.62 0.2 25);
+  --border: oklch(0.32 0.026 255);
+  --input: oklch(0.3 0.026 255);
+  --ring: oklch(0.66 0.1 240);
+  --taskbar: oklch(0.14 0.02 255 / 98%);
+  --taskbar-foreground: oklch(0.92 0.012 245);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow: hidden;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  /* Atlas Mod — flat, opaque surfaces (glass minimized) */
+  .acrylic {
+    background-color: var(--taskbar);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .acrylic-strong {
+    background-color: var(--popover);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .win-shadow {
+    box-shadow: 0 12px 32px -10px rgb(0 0 0 / 0.5), 0 0 0 1px var(--border);
+  }
+  .text-selectable {
+    user-select: text;
+  }
+  /* thin Windows-style scrollbars */
+  .win-scroll::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  .win-scroll::-webkit-scrollbar-thumb {
+    background-color: color-mix(in oklab, var(--muted-foreground) 40%, transparent);
+    border-radius: 8px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  .win-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in oklab, var(--muted-foreground) 65%, transparent);
+    background-clip: content-box;
+  }
+}
+
+@keyframes win-open {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.animate-win-open {
+  animation: win-open 0.16s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+@keyframes flyout-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-flyout {
+  animation: flyout-up 0.18s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
