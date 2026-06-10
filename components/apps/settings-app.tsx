@@ -118,8 +118,8 @@ export function SettingsApp() {
                           w.id === "bloom"
                             ? "url(/wallpaper-light.png)"
                             : w.id === "flow"
-                              ? "url(/wallpaper-mod.png)"
-                              : "linear-gradient(135deg, oklch(0.22 0.03 255), oklch(0.16 0.02 250))",
+                              ? "url(/wallpaper-dark.png)"
+                              : "linear-gradient(135deg, oklch(0.55 0.16 250), oklch(0.5 0.14 230))",
                       }}
                     />
                     <p className="text-xs px-2 py-1.5 bg-muted/50">{w.label}</p>
