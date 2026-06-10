@@ -73,10 +73,10 @@ interface OSContextValue {
 
 const OSContext = createContext<OSContextValue | null>(null)
 
-const STORAGE_KEY = "win11-os-state-v2"
+const STORAGE_KEY = "win11-os-state-v1"
 
 const DEFAULT_SETTINGS: Settings = {
-  theme: "dark",
+  theme: "light",
   accent: "blue",
   wallpaper: "bloom",
   userName: "User",
